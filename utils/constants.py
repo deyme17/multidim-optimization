@@ -19,7 +19,7 @@ class StatusColor(Enum):
         color_map = {
             SolutionStatus.OPTIMAL.value: StatusColor.OPTIMAL.value,
             SolutionStatus.NOT_CONVERGED.value: StatusColor.NOT_CONVERGED.value,
-            SolutionStatus.MAX_ITERATIONS.value: StatusColor.NOT_CONVERGED.value,
+            SolutionStatus.MAX_ITERATIONS.value: StatusColor.MAX_ITERATIONS.value,
             SolutionStatus.ERROR.value: StatusColor.ERROR.value,
             SolutionStatus.UNKNOWN.value: StatusColor.UNKNOWN.value,
         }
@@ -35,14 +35,14 @@ class StatusMessages:
     }
     
     @staticmethod
-    def get_message(status: SolutionStatus) -> str:
+    def get_message(status: str) -> str:
         """Get message for given status"""
         return StatusMessages.LABELS.get(status, "Unknown Status")
     
 # app
 class AppConstants:
-    WINDOW_TITLE = "Multidimensional optimization"
-    WINDOW_SIZE = (900, 700)
+    WINDOW_TITLE = "Multidimensional Optimization"
+    WINDOW_SIZE = (1000, 800)
     TITLE_FONT_SIZE = 16
     BUTTON_HEIGHT = 40
     BUTTON_FONT_SIZE = 12
@@ -51,20 +51,22 @@ class AppConstants:
 
 # input widget
 class InputWidgetConstants:
-    DEFAULT_FUNC = "(1 - x[0])**2 + 100 * (x[1] - x[0]**2)**2"
+    DEFAULT_FUNC = "(1 - x[0])**2 + 100 * (x[1] - x[0]**2)**2"  # rosenbrock function
     DEFAULT_X0_STR = "-1.2, 1.0"
     DEFAULT_EPS = 1e-6
-    DEFAULT_MAX_ITER = 100
+    DEFAULT_MAX_ITER = 1000
 
 # result widget
 class ResultWidgetConstants:
     FONT_FAMILY = "Segoe UI"
     HEADER_SIZE = 12
-    VALUE_SIZE = 24
+    VALUE_SIZE = 16
+    COORD_SIZE = 14
 
 # plot
 class PlotColors:
-    FUNCTION_LINE = '#0078D7'
-    INTERVAL_LINE = '#FF9800'
-    MINIMUM_POINT = '#4CAF50'
+    TRAJECTORY = '#0078D7'
+    START_POINT = '#FF9800'
+    END_POINT = '#4CAF50'
+    CONTOUR_LINES = '#888888'
     BACKGROUND = "#0A0A0A60"
