@@ -1,4 +1,8 @@
 from utils import IOptimizer
 
 class NewtonMethod(IOptimizer):
-    pass
+    """
+    Docstring for NewtonMethod
+    """
+    def optimize(self, problem):
+        return super().optimize(problem)

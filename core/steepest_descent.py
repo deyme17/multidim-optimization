@@ -1,4 +1,8 @@
 from utils import IOptimizer
 
 class SteepestDescent(IOptimizer):
-    pass
+    """
+    Docstring for SteepestDescent
+    """
+    def optimize(self, problem):
+        return super().optimize(problem)
