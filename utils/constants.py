@@ -42,7 +42,7 @@ class StatusMessages:
 # app
 class AppConstants:
     WINDOW_TITLE = "Multidimensional Optimization"
-    WINDOW_SIZE = (1000, 800)
+    WINDOW_SIZE = (900, 700)
     TITLE_FONT_SIZE = 16
     BUTTON_HEIGHT = 40
     BUTTON_FONT_SIZE = 12
