@@ -1,6 +1,6 @@
 import sys
 from PyQt6.QtWidgets import QApplication
-from .core import optimizers
+from core import optimizers
 
 from gui.app_window import MultidimOptApp
 from gui import InputSection, ResultSection
