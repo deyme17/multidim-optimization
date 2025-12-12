@@ -19,5 +19,5 @@ class OptimizationResult:
     value: Optional[float]
     iterations: Optional[int]
     final_epsilon: Optional[float]
-    trajectory: List[np.ndarray]
+    trajectory: Optional[List[np.ndarray]]
     status: str = 'optimal'
