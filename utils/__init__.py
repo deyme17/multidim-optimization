@@ -1,4 +1,4 @@
-from .interfaces import IOptimizer
+from .interfaces import IOptimizer, ILineSearch
 from .constants import (AppConstants, InputWidgetConstants, ResultWidgetConstants, 
                         PlotColors, StatusColor, SolutionStatus, StatusMessages)
 from .containers import OptimizationResult, OptimizationProblem
