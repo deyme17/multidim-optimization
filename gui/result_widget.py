@@ -94,7 +94,7 @@ class ResultSection(QGroupBox):
         self.lbl_final_eps.setText(f"Precision: {opt_result.final_epsilon:.5f}")
         self.result_card.show()
 
-        if status == SolutionStatus.OPTIMAL.value and len(opt_result.trajectory) > 1:
+        if status == SolutionStatus.OPTIMAL.value and opt_result.trajectory is not None and len(opt_result.trajectory) > 1:
             self.plot_convergence(opt_result)
 
     def plot_convergence(self, opt_res: OptimizationResult) -> None:
