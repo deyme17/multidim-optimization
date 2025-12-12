@@ -138,10 +138,6 @@ class ResultSection(QGroupBox):
             ax.grid(True, linestyle=':', alpha=0.6)
             ax.legend(fontsize='small')
             
-            # log scale if appropriate
-            if max(distances) / min(distances[1:] + [distances[0]]) > 100:
-                ax.set_yscale('log')
-            
             self.figure.patch.set_facecolor("#FFFFFF")
             self.canvas.draw()
         except Exception as e:
