@@ -1,6 +1,6 @@
 import math
 import numpy as np
-from typing import Tuple, List
+from typing import Tuple, List, Callable
 from PyQt6.QtWidgets import QGroupBox, QVBoxLayout, QLineEdit, QComboBox, QFormLayout
 from PyQt6.QtCore import Qt
 from utils import InputWidgetConstants, OptimizationProblem, UIHelper
@@ -73,8 +73,8 @@ class InputSection(QGroupBox):
         except ValueError:
             return None, False, "Invalid vector format. Use comma-separated numbers."
 
-    def _create_numerical_gradient(self, func: callable, h: float = 1e-8) -> callable:
-        """Create numerical gradient function"""
+    def _create_numerical_gradient(self, func: Callable, h: float = 1e-8) -> Callable:
+        """Create numerical gradient function by formula: (f(x + h) - f(x - h)) / 2*h"""
         def gradient(x: np.ndarray) -> np.ndarray:
             grad = np.zeros_like(x)
             for i in range(len(x)):
@@ -86,8 +86,14 @@ class InputSection(QGroupBox):
             return grad
         return gradient
 
-    def _create_numerical_hessian(self, func: callable, h: float = 1e-5) -> callable:
-        """Create numerical Hessian function"""
+    def _create_numerical_hessian(self, func: Callable, h: float = 1e-5) -> Callable:
+        """
+        Create numerical Hessian function by formula:
+        d2f/dxidxj = (f(x + h*ei + h*ej)
+                     - f(x + h*ei - h*ej)
+                     - f(x - h*ei + h*ej)
+                     + f(x - h*ei - h*ej) ) / (4*h^2)
+        """
         def hessian(x: np.ndarray) -> np.ndarray:
             n = len(x)
             H = np.zeros((n, n))
