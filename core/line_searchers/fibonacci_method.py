@@ -50,15 +50,7 @@ class FibonacciMethod(ILineSearch):
 
         # N == 3
         x_min = (x1 + x2) / 2
-        value = phi(x_min)
-
-        return OptimizationResult(
-            x_min=x_min,
-            value=value,
-            iterations=iterations,
-            final_epsilon=b - a,
-            status=SolutionStatus.OPTIMAL.value
-        )
+        return x_min
     
     def _calculate_N_fibonacci(self, L: float, epsilon: float = 0.001) -> Tuple[List[int], int]:
         """
