@@ -70,7 +70,7 @@ multidim-optimization/
     ```
 
 ## Usage
-**Run the main script to launch the GUI application**
+**Run the main script to launch the GUI application:**
     ```bash
     main.py
     ```
